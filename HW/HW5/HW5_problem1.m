@@ -13,6 +13,7 @@ XA = X(Y<2,:); YA=Y(Y<2);       % get class 0 vs 1
 % ylabel('feature 2');
 % title('original data');
 % 
+
 % %(b)
 % K = 5:15:20;
 % scores = zeros(1,length(5:15:20));
@@ -81,6 +82,9 @@ XA = X(Y<2,:); YA=Y(Y<2);       % get class 0 vs 1
 % %(c)
 % % single linkage
 % Z = linkage(X,'single');
+% figure;
+% dendrogram(Z,0);
+% title('single');
 % T = cluster(Z,'maxclust',5);
 % figure;
 % subplot(2,1,1);
@@ -89,8 +93,6 @@ XA = X(Y<2,:); YA=Y(Y<2);       % get class 0 vs 1
 % ylabel('feature 2');
 % title('K=5,single linkage');
 % 
-% 
-% Z = linkage(X,'single');
 % T = cluster(Z,'maxclust',20);
 % subplot(2,1,2);
 % plotClassify2D([],X,T);
@@ -101,6 +103,10 @@ XA = X(Y<2,:); YA=Y(Y<2);       % get class 0 vs 1
 % 
 % % complete
 % Z = linkage(X,'complete');
+% 
+% figure;
+% dendrogram(Z,0);
+% title('complete');
 % T = cluster(Z,'maxclust',5);
 % figure;
 % subplot(2,1,1);
@@ -110,7 +116,6 @@ XA = X(Y<2,:); YA=Y(Y<2);       % get class 0 vs 1
 % title('K=5,complete linkage');
 % 
 % Z = linkage(X,'complete');
-% T = cluster(Z,'maxclust',20);
 % subplot(2,1,2);
 % plotClassify2D([],X,T);
 % xlabel('feature 1');

@@ -47,7 +47,7 @@ end
 %find the clusters associated with document 1,15,30
 m = [1,15,30];
 [n,d] = size(z);
-for i = 1: length(m)
+for i = 3: 3
    cluster = z(m(i));
    idx = 1;
    fprintf('%s','cluster');

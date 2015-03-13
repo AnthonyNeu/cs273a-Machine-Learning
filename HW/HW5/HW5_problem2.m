@@ -21,12 +21,13 @@ Xn= X./repmat(sum(X,2),[1,W]) ; % divide word counts by doc length
 %(b)
 %pick one best kmeans result
 sumd2 = sumd;
+sumd1 = zeros(1,10);
 for i = 1 : 10
-    [z1,c1,sumd1] = kmeans(Xn,20);
-    if sumd1 < sumd2
+    [z1,c1,sumd1(i)] = kmeans(Xn,20);
+    if sumd1(i) < sumd2
         z = z1;
         c = c1;
-        sumd2 = sumd1;
+        sumd2 = sumd1(i);
     end
 end
 
@@ -42,12 +43,12 @@ for i = 1 : 20
 [sorted,order] = sort( c(i,:), 2, 'descend');
 fprintf('Cluster %d: ',i); fprintf('%s ',vocab{order(1:10)}); fprintf('\n');
 end
-
+% 
 %(d)
 %find the clusters associated with document 1,15,30
 m = [1,15,30];
 [n,d] = size(z);
-for i = 1: length(m)
+for i = 3: 3
    cluster = z(m(i));
    idx = 1;
    fprintf('%s','cluster');
